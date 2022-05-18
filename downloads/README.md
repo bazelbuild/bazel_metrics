@@ -12,7 +12,7 @@ Where:
 - hhmm: is the hour and minute (UTC) of the collection
 - repository: the repository containing this artifact
 - filename: is the name of the downloadable artifact
-- tag: the artifact tag, typically the release tag.
+- release: the release name
 - # artifact downloads: is the cummulative number of downloads of that artifact
   as of the collection time.
 - # sha256 downloads: is the cummulative number of downloads of the sha256

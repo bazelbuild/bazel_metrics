@@ -37,12 +37,12 @@ The files in `csv` categorize the download counts in ways that enable
 drill-down.
 
 Format:
-  *sample_date,product,version,os,arch,extension,downloads,downloads_total*
+  *sample_date,repo,product,version,os,arch,extension,downloads,downloads_total*
 
 Example:
 
 ```
-2022-03-22,bazel,4.2.1,windows,x86_64,exe,147,28719
+2022-03-22,bazelbuild/bazel,bazel,4.2.1,windows,x86_64,exe,147,28719
 ```
 
 - Product, version, os, arch, and extension are derived from the artifact

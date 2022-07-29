@@ -83,11 +83,11 @@ def Categorize(file_name, default_version=None):
              ])
   if os in ['apple-darwin', 'darwin', 'osx']:
     os = 'macos'
-  if os in ['gnu', 'linux-gnu']:
+  elif os in ['gnu', 'linux-gnu']:
     os = 'linux'
-  if os in ['windows-gnu', 'windows']:
+  elif os in ['windows-gnu', 'windows']:
     os = 'windows'
-  if os == 'dist':
+  elif os == 'dist':
     os = 'any'
 
   # extract sig before packaging, so .sh and .sha256 are not confused
@@ -175,7 +175,8 @@ def Categorize(file_name, default_version=None):
   if left:
     left = ' - LEAVES(%s)' % left
 
-  return Buckets(product, version, arch, os, packaging, installer, is_bin,
+  return Buckets(product, version, arch or '', os or '', packaging or '',
+                 installer or '', is_bin or False,
                  '|'.join(attributes), left)
 
 

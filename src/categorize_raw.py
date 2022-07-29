@@ -40,10 +40,11 @@ def MapRawData(file_names):
 
         buckets = categorize.Categorize(file_name, default_version=release_tag)
         if buckets:
-          print('%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s' % (
-              ymd, hm, file_name, bin_count, sha_count, sig_count,
-              buckets.product, buckets.version, buckets.arch, buckets.os,
-              buckets.packaging, buckets.installer, buckets.is_bin))
+          print(','.join([
+              ymd, repo, file_name, str(bin_count), str(sha_count),
+              str(sig_count), buckets.product, buckets.version, buckets.arch,
+              buckets.os, buckets.packaging, buckets.installer
+          ]))
           if buckets.leftover:
             print('WARNING: Could not fully categorize', line,
                   'got', buckets.leftover,

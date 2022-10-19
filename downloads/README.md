@@ -4,7 +4,7 @@
 
 The `raw` folder contains files with content of the form:
 
-  *date|hhmm|repository|filename|tag|# artifact downloads|# sha256 downloads|# sig downloads*
+  *date|hhmm|repository|filename|tag|artifact downloads|sha256 downloads|sig downloads*
 
 Where:
 
@@ -13,11 +13,11 @@ Where:
 - repository: the repository containing this artifact
 - filename: is the name of the downloadable artifact
 - release: the release name
-- # artifact downloads: is the cummulative number of downloads of that artifact
+- artifact downloads: is the cummulative number of downloads of that artifact
   as of the collection time.
-- # sha256 downloads: is the cummulative number of downloads of the sha256
+- sha256 downloads: is the cummulative number of downloads of the sha256
   checksum of the artifact as of the collection time.
-- # sig downloads: is the cummulative number of downloads of the signature
+- sig downloads: is the cummulative number of downloads of the signature
   of the artifact as of the collection time.
 
 Sample:

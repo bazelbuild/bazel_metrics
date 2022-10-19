@@ -123,7 +123,7 @@ def Categorize(file_name, default_version=None):
   installer = 'installer' if installer else 'standalone'
 
   # How we say things about JDK is a mess
-  nojdk, todo = ExtractFeature(todo, ['nojdk', 'without-jdk'])
+  nojdk, todo = ExtractFeature(todo, ['_nojdk', 'nojdk', 'without-jdk'])
   jdk = None
   if nojdk:
     jdk = 'nojdk'

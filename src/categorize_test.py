@@ -28,12 +28,15 @@ class CategorizeTest(unittest.TestCase):
   def test_samples(self):
     with open('categorize_samples.txt', 'r') as samples:
       for sample in samples:
+        # bazel-0.10.0-dist.zip|bazel|0.10.0|None|any|zip|standalone|True|{}
         try:
           (file, product, version, arch, os, packaging, installer, is_bin,
            rest) = sample.strip().split('|')
         except ValueError:
           print('Bad sample:', sample)
           continue
+        if not packaging:
+          packaging = ''
         with self.subTest(file=file):
           m = self.version_re.search(file)
           # Only use the default version if we can not find the common version
@@ -47,7 +50,7 @@ class CategorizeTest(unittest.TestCase):
           self.assertEqual(version, buckets.version, str(buckets))
           self.assertEqual(arch, str(buckets.arch), str(buckets))
           self.assertEqual(os, str(buckets.os), str(buckets))
-          self.assertEqual(packaging, str(buckets.packaging), str(buckets))
+          self.assertEqual(packaging or '', str(buckets.packaging), str(buckets))
           self.assertEqual(installer, buckets.installer, str(buckets))
           self.assertEqual(is_bin, str(buckets.is_bin), str(buckets))
           self.assertEqual(

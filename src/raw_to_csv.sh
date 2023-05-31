@@ -13,7 +13,7 @@ if [[ ! -f "$RAW" ]] ; then
   exit 1
 fi
 
-CATEGORIZED=downloads/categorized/${year}${month}.csv
+CATEGORIZED=downloads/categorized/${year}/${year}${month}.csv
 
 python src/categorize_raw.py "$RAW"  >"$CATEGORIZED"
 
